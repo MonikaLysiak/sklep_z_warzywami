@@ -131,6 +131,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305141521338_First.cs" />
+    <Compile Include="Migrations\202305141521338_First.designer.cs">
+      <DependentUpon>202305141521338_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305141532256_First1.cs" />
+    <Compile Include="Migrations\202305141532256_First1.designer.cs">
+      <DependentUpon>202305141532256_First1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\DbModels\Sprzedawca.cs" />
     <Compile Include="Models\DbModels\Warzywo.cs" />
     <Compile Include="Models\DbModels\Zakup.cs" />
@@ -218,6 +228,14 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202305141521338_First.resx">
+      <DependentUpon>202305141521338_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305141532256_First1.resx">
+      <DependentUpon>202305141532256_First1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -13,6 +13,7 @@ namespace SklepZWarzywami.Models.DbModels
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public List<Zakup> Transakcje { get; set; } = new List<Zakup>();
+
         public Sprzedawca() { }
 
         public Sprzedawca(int sprzedawcaId, string imie, string nazwisko, List<Zakup> transakcje)
@@ -22,5 +23,8 @@ namespace SklepZWarzywami.Models.DbModels
             Nazwisko = nazwisko;
             Transakcje = transakcje;
         }
+
+        public int? ZakupId { get; set; }
+        public virtual Zakup Zakup { get; set; }
     }
 }
