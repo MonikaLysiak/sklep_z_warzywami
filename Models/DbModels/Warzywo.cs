@@ -8,7 +8,7 @@ namespace SklepZWarzywami.Models
 {
     public class Warzywo
     {
-        public int WarzywoId { get; set; }
+        public int WarzywoId { get; set; } //komentarz
         public string Nazwa { get; set; }
         public double CenaZaKg { get; set; }
 
