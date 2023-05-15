@@ -10,6 +10,8 @@ namespace SklepZWarzywami.Models.DbModels
     public class Sprzedawca
     {
         public int SprzedawcaId { get; set; }
+
+        //[MinLength(5, ErrorMessage = "Zle")]
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public List<Zakup> Transakcje { get; set; } = new List<Zakup>();
