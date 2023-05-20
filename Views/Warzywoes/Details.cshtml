@@ -1,0 +1,42 @@
+﻿@model SklepZWarzywami.Models.Warzywo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Warzywo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CenaZaKg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CenaZaKg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IloscNaStanie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IloscNaStanie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WarzywoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

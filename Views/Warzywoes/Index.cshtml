@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SklepZWarzywami.Models.Warzywo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CenaZaKg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IloscNaStanie)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CenaZaKg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IloscNaStanie)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WarzywoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WarzywoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WarzywoId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -7,111 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SklepZWarzywami.Models;
-using SklepZWarzywami.Models.DbModels;
 
 namespace SklepZWarzywami.Controllers
 {
-    public class SprzedawcasController : Controller
+    public class WarzywoesController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
 
-        // GET: Sprzedawcas
+        // GET: Warzywoes
         public ActionResult Index()
         {
-            return View(db.Sprzedawcy.ToList());
+            return View(db.Warzywa.ToList());
         }
 
-        // GET: Sprzedawcas/Details/5
+        // GET: Warzywoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            Warzywo warzywo = db.Warzywa.Find(id);
+            if (warzywo == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            return View(warzywo);
         }
 
-        // GET: Sprzedawcas/Create
+        // GET: Warzywoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Sprzedawcas/Create
+        // POST: Warzywoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SprzedawcaId,Imie,Nazwisko")] Sprzedawca sprzedawca)
+        public ActionResult Create([Bind(Include = "WarzywoId,Nazwa,CenaZaKg,IloscNaStanie")] Warzywo warzywo)
         {
             if (ModelState.IsValid)
             {
-                db.Sprzedawcy.Add(sprzedawca);
+                db.Warzywa.Add(warzywo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(sprzedawca);
+            return View(warzywo);
         }
 
-        // GET: Sprzedawcas/Edit/5
+        // GET: Warzywoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            Warzywo warzywo = db.Warzywa.Find(id);
+            if (warzywo == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            return View(warzywo);
         }
 
-        // POST: Sprzedawcas/Edit/5
+        // POST: Warzywoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SprzedawcaId,Imie,Nazwisko")] Sprzedawca sprzedawca)
+        public ActionResult Edit([Bind(Include = "WarzywoId,Nazwa,CenaZaKg,IloscNaStanie")] Warzywo warzywo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sprzedawca).State = EntityState.Modified;
+                db.Entry(warzywo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(sprzedawca);
+            return View(warzywo);
         }
 
-        // GET: Sprzedawcas/Delete/5
+        // GET: Warzywoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            Warzywo warzywo = db.Warzywa.Find(id);
+            if (warzywo == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            return View(warzywo);
         }
 
-        // POST: Sprzedawcas/Delete/5
+        // POST: Warzywoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            db.Sprzedawcy.Remove(sprzedawca);
+            Warzywo warzywo = db.Warzywa.Find(id);
+            db.Warzywa.Remove(warzywo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

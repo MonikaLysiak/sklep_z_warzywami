@@ -11,107 +11,112 @@ using SklepZWarzywami.Models.DbModels;
 
 namespace SklepZWarzywami.Controllers
 {
-    public class SprzedawcasController : Controller
+    public class ZakupsController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
 
-        // GET: Sprzedawcas
+        // GET: Zakups
         public ActionResult Index()
         {
-            return View(db.Sprzedawcy.ToList());
+            var zakupy = db.Zakupy.Include(z => z.Sprzedawca);
+            return View(zakupy.ToList());
         }
 
-        // GET: Sprzedawcas/Details/5
+        // GET: Zakups/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            Zakup zakup = db.Zakupy.Find(id);
+            if (zakup == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            return View(zakup);
         }
 
-        // GET: Sprzedawcas/Create
+        // GET: Zakups/Create
         public ActionResult Create()
         {
+            ViewBag.SprzedawcaId = new SelectList(db.Sprzedawcy, "SprzedawcaId", "Imie");
             return View();
         }
 
-        // POST: Sprzedawcas/Create
+        // POST: Zakups/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SprzedawcaId,Imie,Nazwisko")] Sprzedawca sprzedawca)
+        public ActionResult Create([Bind(Include = "ZakupId,SprzedawcaId,Data")] Zakup zakup)
         {
             if (ModelState.IsValid)
             {
-                db.Sprzedawcy.Add(sprzedawca);
+                db.Zakupy.Add(zakup);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(sprzedawca);
+            ViewBag.SprzedawcaId = new SelectList(db.Sprzedawcy, "SprzedawcaId", "Imie", zakup.SprzedawcaId);
+            return View(zakup);
         }
 
-        // GET: Sprzedawcas/Edit/5
+        // GET: Zakups/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            Zakup zakup = db.Zakupy.Find(id);
+            if (zakup == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            ViewBag.SprzedawcaId = new SelectList(db.Sprzedawcy, "SprzedawcaId", "Imie", zakup.SprzedawcaId);
+            return View(zakup);
         }
 
-        // POST: Sprzedawcas/Edit/5
+        // POST: Zakups/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SprzedawcaId,Imie,Nazwisko")] Sprzedawca sprzedawca)
+        public ActionResult Edit([Bind(Include = "ZakupId,SprzedawcaId,Data")] Zakup zakup)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sprzedawca).State = EntityState.Modified;
+                db.Entry(zakup).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(sprzedawca);
+            ViewBag.SprzedawcaId = new SelectList(db.Sprzedawcy, "SprzedawcaId", "Imie", zakup.SprzedawcaId);
+            return View(zakup);
         }
 
-        // GET: Sprzedawcas/Delete/5
+        // GET: Zakups/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            Zakup zakup = db.Zakupy.Find(id);
+            if (zakup == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            return View(zakup);
         }
 
-        // POST: Sprzedawcas/Delete/5
+        // POST: Zakups/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            db.Sprzedawcy.Remove(sprzedawca);
+            Zakup zakup = db.Zakupy.Find(id);
+            db.Zakupy.Remove(zakup);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

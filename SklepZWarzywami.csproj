@@ -129,6 +129,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SprzedawcasController.cs" />
+    <Compile Include="Controllers\WarzywoesController.cs" />
+    <Compile Include="Controllers\ZakupJednostkowiesController.cs" />
+    <Compile Include="Controllers\ZakupsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +210,21 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Warzywoes\Create.cshtml" />
+    <Content Include="Views\Warzywoes\Delete.cshtml" />
+    <Content Include="Views\Warzywoes\Details.cshtml" />
+    <Content Include="Views\Warzywoes\Edit.cshtml" />
+    <Content Include="Views\Warzywoes\Index.cshtml" />
+    <Content Include="Views\ZakupJednostkowies\Create.cshtml" />
+    <Content Include="Views\ZakupJednostkowies\Delete.cshtml" />
+    <Content Include="Views\ZakupJednostkowies\Details.cshtml" />
+    <Content Include="Views\ZakupJednostkowies\Edit.cshtml" />
+    <Content Include="Views\ZakupJednostkowies\Index.cshtml" />
+    <Content Include="Views\Zakups\Create.cshtml" />
+    <Content Include="Views\Zakups\Delete.cshtml" />
+    <Content Include="Views\Zakups\Details.cshtml" />
+    <Content Include="Views\Zakups\Edit.cshtml" />
+    <Content Include="Views\Zakups\Index.cshtml" />
     <Content Include="Views\Sprzedawcas\Create.cshtml" />
     <Content Include="Views\Sprzedawcas\Delete.cshtml" />
     <Content Include="Views\Sprzedawcas\Details.cshtml" />
