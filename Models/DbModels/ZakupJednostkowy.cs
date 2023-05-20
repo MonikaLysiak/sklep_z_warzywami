@@ -8,23 +8,20 @@ namespace SklepZWarzywami.Models.DbModels
     public class ZakupJednostkowy
     {
         public int ZakupJednostkowyId { get; set; }
-        public double Ilosc { get; set; }
-        //public Warzywo W { get; set; }
+        public double Waga { get; set; }
+        public int ZakupId { get; set; }
+        public int WarzywoId { get; set; }
         public double Cena { get; set; }
 
-        public ZakupJednostkowy(double ilosc, Warzywo warzywo)
+        public ZakupJednostkowy() { }
+        public ZakupJednostkowy(double waga, Warzywo warzywo, Zakup zakup)
         {
-            Ilosc = ilosc;
+            Waga = waga;
             Warzywo = warzywo;
-            Cena = warzywo.CenaZaKg * Ilosc;
-
+            Cena = warzywo.CenaZaKg * Waga;
+            Zakup = zakup;
         }
-
-        // nie jestem pewna czy to tak ma być, poprzednie zakomentowane powyżej
-        public int? WarzywoId { get; set; }
-        public virtual Warzywo Warzywo { get; set; }
-
-        // powyżej nowa część, możliwe że do modyfikacji
-
+        public Zakup Zakup { get; set; }
+        public Warzywo Warzywo { get; set; }
     }
 }

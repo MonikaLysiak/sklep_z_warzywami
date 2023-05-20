@@ -132,13 +132,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305141521338_First.cs" />
-    <Compile Include="Migrations\202305141521338_First.designer.cs">
-      <DependentUpon>202305141521338_First.cs</DependentUpon>
+    <Compile Include="Migrations\202305201848027_first.cs" />
+    <Compile Include="Migrations\202305201848027_first.designer.cs">
+      <DependentUpon>202305201848027_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305141532256_First1.cs" />
-    <Compile Include="Migrations\202305141532256_First1.designer.cs">
-      <DependentUpon>202305141532256_First1.cs</DependentUpon>
+    <Compile Include="Migrations\202305201856528_connectingSprzedawca_Zakup.cs" />
+    <Compile Include="Migrations\202305201856528_connectingSprzedawca_Zakup.designer.cs">
+      <DependentUpon>202305201856528_connectingSprzedawca_Zakup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305201902429_addingConstructors.cs" />
+    <Compile Include="Migrations\202305201902429_addingConstructors.designer.cs">
+      <DependentUpon>202305201902429_addingConstructors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305201904448_deletingVirtualFromUsedObjects.cs" />
+    <Compile Include="Migrations\202305201904448_deletingVirtualFromUsedObjects.designer.cs">
+      <DependentUpon>202305201904448_deletingVirtualFromUsedObjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -236,11 +244,17 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202305141521338_First.resx">
-      <DependentUpon>202305141521338_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305201848027_first.resx">
+      <DependentUpon>202305201848027_first.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305141532256_First1.resx">
-      <DependentUpon>202305141532256_First1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305201856528_connectingSprzedawca_Zakup.resx">
+      <DependentUpon>202305201856528_connectingSprzedawca_Zakup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305201902429_addingConstructors.resx">
+      <DependentUpon>202305201902429_addingConstructors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305201904448_deletingVirtualFromUsedObjects.resx">
+      <DependentUpon>202305201904448_deletingVirtualFromUsedObjects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

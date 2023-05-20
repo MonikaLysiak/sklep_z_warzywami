@@ -8,22 +8,18 @@ namespace SklepZWarzywami.Models.DbModels
     public class Zakup
     {
         public int ZakupId { get; set; }
+        public int SprzedawcaId { get; set; }
+        public DateTime Data { get; set; }
 
-        public List<ZakupJednostkowy> ZakupyJednostkowe = new List<ZakupJednostkowy>();
-        //public int SprzedawcaId { get; set; }
-        public double KwotaCalkowita { get; set; }
-        public Zakup(int numerZakupu, List<ZakupJednostkowy> zakupy, int sprzedawcaId)
+        public Zakup() {  }
+
+        public Zakup(int zakupId, Sprzedawca sprzedawca, DateTime data)
         {
-            ZakupId = numerZakupu;
-            ZakupyJednostkowe = zakupy;
-            SprzedawcaId = sprzedawcaId;
-
-            KwotaCalkowita = zakupy.Sum(z => z.Cena);
+            ZakupId = zakupId;
+            Sprzedawca = sprzedawca;
+            Data = data;
         }
-        public int? ZakupJednostkowyId { get; set; }
-        public virtual ZakupJednostkowy ZakupJednostkowy { get; set; }
-        public int? SprzedawcaId { get; set; }
-        public virtual Sprzedawca Sprzedawca { get; set; }
-
+        public virtual ICollection<ZakupJednostkowy> ZakupyJednostkowe { get; set; }
+        public Sprzedawca Sprzedawca { get; set; }
     }
 }
