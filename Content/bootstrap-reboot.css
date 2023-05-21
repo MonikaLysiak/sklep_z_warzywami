@@ -485,4 +485,8 @@ progress {
   display: none !important;
 }
 
+img{
+    max-width: 20px;
+}
+
 /*# sourceMappingURL=bootstrap-reboot.css.map */
