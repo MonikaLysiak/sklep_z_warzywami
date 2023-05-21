@@ -151,6 +151,10 @@
     <Compile Include="Migrations\202305201904448_deletingVirtualFromUsedObjects.designer.cs">
       <DependentUpon>202305201904448_deletingVirtualFromUsedObjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305211105589_ParsingStrToDTinZakup.cs" />
+    <Compile Include="Migrations\202305211105589_ParsingStrToDTinZakup.designer.cs">
+      <DependentUpon>202305211105589_ParsingStrToDTinZakup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\DbModels\Sprzedawca.cs" />
@@ -273,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305201904448_deletingVirtualFromUsedObjects.resx">
       <DependentUpon>202305201904448_deletingVirtualFromUsedObjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305211105589_ParsingStrToDTinZakup.resx">
+      <DependentUpon>202305211105589_ParsingStrToDTinZakup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
