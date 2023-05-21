@@ -11,107 +11,116 @@ using SklepZWarzywami.Models.DbModels;
 
 namespace SklepZWarzywami.Controllers
 {
-    public class SprzedawcasController : Controller
+    public class ZakupJednostkowiesController : Controller
     {
         private DatabaseContext db = new DatabaseContext();
 
-        // GET: Sprzedawcas
+        // GET: ZakupJednostkowies
         public ActionResult Index()
         {
-            return View(db.Sprzedawcy.ToList());
+            var zakupyJednostkowe = db.ZakupyJednostkowe.Include(z => z.Warzywo).Include(z => z.Zakup);
+            return View(zakupyJednostkowe.ToList());
         }
 
-        // GET: Sprzedawcas/Details/5
+        // GET: ZakupJednostkowies/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            ZakupJednostkowy zakupJednostkowy = db.ZakupyJednostkowe.Find(id);
+            if (zakupJednostkowy == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            return View(zakupJednostkowy);
         }
 
-        // GET: Sprzedawcas/Create
+        // GET: ZakupJednostkowies/Create
         public ActionResult Create()
         {
+            ViewBag.WarzywoId = new SelectList(db.Warzywa, "WarzywoId", "Nazwa");
+            ViewBag.ZakupId = new SelectList(db.Zakupy, "ZakupId", "ZakupId");
             return View();
         }
 
-        // POST: Sprzedawcas/Create
+        // POST: ZakupJednostkowies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SprzedawcaId,Imie,Nazwisko")] Sprzedawca sprzedawca)
+        public ActionResult Create([Bind(Include = "ZakupJednostkowyId,Waga,ZakupId,WarzywoId,Cena")] ZakupJednostkowy zakupJednostkowy)
         {
             if (ModelState.IsValid)
             {
-                db.Sprzedawcy.Add(sprzedawca);
+                db.ZakupyJednostkowe.Add(zakupJednostkowy);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(sprzedawca);
+            ViewBag.WarzywoId = new SelectList(db.Warzywa, "WarzywoId", "Nazwa", zakupJednostkowy.WarzywoId);
+            ViewBag.ZakupId = new SelectList(db.Zakupy, "ZakupId", "ZakupId", zakupJednostkowy.ZakupId);
+            return View(zakupJednostkowy);
         }
 
-        // GET: Sprzedawcas/Edit/5
+        // GET: ZakupJednostkowies/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            ZakupJednostkowy zakupJednostkowy = db.ZakupyJednostkowe.Find(id);
+            if (zakupJednostkowy == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            ViewBag.WarzywoId = new SelectList(db.Warzywa, "WarzywoId", "Nazwa", zakupJednostkowy.WarzywoId);
+            ViewBag.ZakupId = new SelectList(db.Zakupy, "ZakupId", "ZakupId", zakupJednostkowy.ZakupId);
+            return View(zakupJednostkowy);
         }
 
-        // POST: Sprzedawcas/Edit/5
+        // POST: ZakupJednostkowies/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SprzedawcaId,Imie,Nazwisko")] Sprzedawca sprzedawca)
+        public ActionResult Edit([Bind(Include = "ZakupJednostkowyId,Waga,ZakupId,WarzywoId,Cena")] ZakupJednostkowy zakupJednostkowy)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sprzedawca).State = EntityState.Modified;
+                db.Entry(zakupJednostkowy).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(sprzedawca);
+            ViewBag.WarzywoId = new SelectList(db.Warzywa, "WarzywoId", "Nazwa", zakupJednostkowy.WarzywoId);
+            ViewBag.ZakupId = new SelectList(db.Zakupy, "ZakupId", "ZakupId", zakupJednostkowy.ZakupId);
+            return View(zakupJednostkowy);
         }
 
-        // GET: Sprzedawcas/Delete/5
+        // GET: ZakupJednostkowies/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            if (sprzedawca == null)
+            ZakupJednostkowy zakupJednostkowy = db.ZakupyJednostkowe.Find(id);
+            if (zakupJednostkowy == null)
             {
                 return HttpNotFound();
             }
-            return View(sprzedawca);
+            return View(zakupJednostkowy);
         }
 
-        // POST: Sprzedawcas/Delete/5
+        // POST: ZakupJednostkowies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Sprzedawca sprzedawca = db.Sprzedawcy.Find(id);
-            db.Sprzedawcy.Remove(sprzedawca);
+            ZakupJednostkowy zakupJednostkowy = db.ZakupyJednostkowe.Find(id);
+            db.ZakupyJednostkowe.Remove(zakupJednostkowy);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

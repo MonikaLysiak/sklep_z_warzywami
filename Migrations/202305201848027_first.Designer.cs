@@ -7,13 +7,13 @@ namespace SklepZWarzywami.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class First1 : IMigrationMetadata
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(First1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "202305141532256_First1"; }
+            get { return "202305201848027_first"; }
         }
         
         string IMigrationMetadata.Source
