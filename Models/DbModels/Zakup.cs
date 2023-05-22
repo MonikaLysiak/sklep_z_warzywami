@@ -34,5 +34,10 @@ namespace SklepZWarzywami.Models.DbModels
         }
         public virtual ICollection<ZakupJednostkowy> ZakupyJednostkowe { get; set; }
         public Sprzedawca Sprzedawca { get; set; }
+
+        public double ObliczSumę()
+        {
+            return ZakupyJednostkowe.Sum(z => z.Cena);
+        }
     }
 }
