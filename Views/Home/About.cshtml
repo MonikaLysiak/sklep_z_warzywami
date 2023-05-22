@@ -1,9 +1,73 @@
 ﻿@{
-    ViewBag.Title = "bout";
+    ViewBag.Title = "Dokumentacja";
 }
 <main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
-
-    <p>Use this area to provide additional information.</p>
+    <h2 id="title">@ViewBag.Title</h2>
+    <br />
+    <div>
+        <h3>Cel projektu</h3>
+        <p>
+            Celem projektu jest stworzenie aplikacji internetowej spiętej z lokalną bazą danych, służącej do zarządzania sklepem z warzywami. Aplikacja ma tworzyć bazę danych zawierającą informacje na temat warzyw sprzedawanych w sklepie(ich cenę oraz dostępność), sprzedawców(imiona i nazwiska) oraz przeprowadzonych transakcji(sprzedawca odpowiedzialny za nie, data oraz kwota). Aplikacja ma pozwalać na wykonywanie podstawowych operacji na danych:
+            <ol>
+                <li>dodawanie nowych rekordów (warzyw, sprzedawców czy dokonanych transakcji) do bazy</li>
+                <li>dostęp do danych już istniejących i ich wyświetlenie</li>
+                <li>wprowadzanie zmian w istniejących już rekordach</li>
+                <li>usuwanie rekordów z bazy</li>
+            </ol>
+            Aplikacja musi zapewniać łatwy dostęp do tabel z asortymentem, sprzedawcami oraz transakcjami.
+        </p>
+    </div>
+    <br />
+    <div>
+        <h3>Zastosowanie biznesowe</h3>
+        <p>
+            Aplikacja umożliwi skuteczne zarządzanie asortymentem sklepu - dodawanie czy usuwanie produktów z oferty, w zależności od ich dostępności. Pozwoli też monitorować stan magazynowy, co może pomóc utrzymać odpowiednią dostępność towarów.
+            Dzięki aplikacji możliwe stanie się także monitorowanie sprzedaży, co może dostarczyć cennych informacji na temat popularności danych warzyw czy efektów pracy danego pracownika. Informacje te mogą pomóc w podejmowaniu kluczowych decyzji, np. dotyczących uzupełniania asortymentu czy polityki kadrowej.
+            Aplikacja pozwoli także ulepszyć obsługę klienta. Pracownicy będą mieli dostęp do aktualnych informacji o produktach i ich dostępności czy cenie, dzięki czemu będą w stanie szybko i precyzyjnie odpowiedzieć na pytania zadawane przez klientów. Sprawna obsługa sprawi, że wizyta w sklepie będzie dla klientów przyjemnym doświadczeniem, co z kolei zwiększy szanse na to, że będą oni ponownie decydować się na zakupy w sklepie.
+        </p>
+    </div>
+    <div>
+        <br />
+        <h3>Modele</h3>
+        <h5>Sprzedawca</h5>
+        <p>Model ten zawiera publiczną klasę <i>Sprzedawca</i>. Pozwala on na obsługiwanie i przechowywanie danych na temat pracowników sklepu, takich jak ich imiona, nazwiska czy identyfikator, który stanie się kluczem podstawowym w tabeli w bazie danych. Zawiera dwa konstruktory-nieparametryczny oraz parametryczny ustawiający wszystkie właściwości. Właściwość <i>Zakupy</i> przechowuje kolekcję obiektów <i>Zakup</i> powiązanych z danym sprzedawcą.</p>
+        <h5>Warzywo</h5>
+        <p>Model zawiera publiczną klasę <i>Warzywo</i>, która zawiera właściwości reprezentujące dane na temat warzyw- ich nazwę, cenę, ilość na stanie oraz identyfikator(klucz podstawowy). Oprócz tych właściwości znajdują się w niej dwa konstruktory- nieparametryczny oraz parametryczny, który ustawia wszystkie wymieniowe wcześniej właściwości. Wirtualna właściwość <i>ZakupyJednostkowe</i> zawiera wszystkie zakupy <i>Zakup</i> zawierające dane warzywo.</p>
+        <h5>ZakupJednostkowy</h5>
+        <p>Model ten zawiera publiczną klasę <i>ZakupJednostkowy</i>. Właściwości w modelu przechowują dane na temat identyfikatora zakupu jednostkowego (klucza podstawowego w tabeli), wagi, ceny oraz identyfikatorów warzyw i zakupów(klucze obce w tabeli). W klasie utworzone są także dwie właściwości nawigacji: <i>Warzywo</i> oraz <i>Zakup</i>. Pozwalają one na przyporządkowanie do zakupu jednostkowego tylko jednego warzywa i jednego zakupu. Model zawiera także dwa konstruktory-nieparametryczny oraz parametryczny, ustawiający właściwości <i>Waga</i>, <i>Warzywo</i>, <i>Zakup</i> oraz <i>Cena</i> na odpowiednie wartości.</p>
+        <h5>Zakup</h5>
+        <p>
+            Model ten zawiera publiczną klasę <i>Zakup</i>, zawierającą właściwości reprezentujące: identyfikator zakupu, identyfikator sprzedawcy(klucz obcy), datę oraz sprzedawcę odpowiedzialnego za dany zakup. Wirtualna właściwość <i>ZakupyJednostkowe</i> przyporządkowuje do zakupu wszystkie obiekty <i>ZakupJednostkowy</i> do niego należące. W klasie występują także dwa konstruktory-nieparametryczny oraz parametryczny, ustawiający identyfikator zakupu, sprzedawcę odpowiedzialnego za zakup oraz datę zakupu. W modelu znajduje się także metoda, służąca do sumowania cen zakupów jednostkowych.
+        </p>
+    </div>
+    <br />
+    <div>
+        <h3>Kontrolery</h3>
+        <h5>HomeController</h5>
+        <p>Ten kontroler odpowiada za wyświetlanie widoku strony startowej oraz strony z dokumentacją.</p>
+        <h5>SprzedawcasController</h5>
+        <p>
+            Kontroler ten odpowiada za obsługiwanie wszelkich zdarzeń związanych ze sprzedawcami. Definiuje on różne akcje:
+            <ul>
+                <li><i>Index()</i>-akcja zwracająca widok ze wszystkimi sprzedawcami </li>
+                <li><i>Details(int? id)</i>-akcja zwracająca szczegóły na temat sprzedawcy o danym id</li>
+                <li><i>Create()</i>-akcja zwracająca widok formularza pozwalający na stworzenie nowego sprzedawcy</li>
+                <li><i>Create([Bind(Include = "SprzedawcaId,Imie,Nazwisko")] Sprzedawca sprzedawca)</i>- akcja dodająca do bazy sprzedawcę stworzonego w formularzu</li>
+                <li><i>Edit(int? id)</i>-akcja zwracająca widok formularza pozwalający na edytowanie informacji o sprzedawcy o danym id</li>
+                <li><i>Edit([Bind(Include = "SprzedawcaId,Imie,Nazwisko")] Sprzedawca sprzedawca)</i>-akcja przekazująca formularz do bazy i zapisująca w niej zmienione dane</li>
+                <li><i>Delete(int? id)</i>-akcja zwracająca widok wymagający potwierdzenia chęci usunięcia danego sprzedawcy</li>
+                <li><i>DeleteConfirmed(int id)</i>-akcja usuwająca sprzedawcę o danym id z bazy</li>
+            </ul>
+            Podsumowując, kontroler obsługuje pełny CRUD związany ze sprzedawcą.
+        </p>
+        <h5>WarzywoesController</h5>
+        <p>Kontroler ten odpowiada za reakcje na zdarzenia użytkownika, związane z warzywami. Definiuje podobne akcje jak <i>SprzedawcasController</i>, również obsługuje wszystkie podstawowe operacje na danych(dodawanie nowych warzyw, wyświetlanie warzyw będących już w bazie, edycję informacji o warzywach i usuwanie warzyw z bazy).</p>
+        <h5>ZakupJednostkowiesController</h5>
+        <p>
+            Ten kontroler obsługuje zdarzenia związane z zakupami jednostkowymi. Tak jak pozostałe kontrolery odpowiada za wszystkie podstawowe operacje na danych. Oprócz tego, w akcji <i>Index()</i> wykorzystuje metodę <i>Include</i>, która pozwala na przyporządkowanie do zakupu jednostkowego danego warzywa oraz zakupu, do którego należy. Dodatkowo w akcji <i>Create</i> sprawdza czy na stanie jest wystarczająca ilość warzywa, które jest przedmiotem danego zakupu. Jeśli nie, ustawia kupowaną ilość na maksymalną dostępną. Aktualizuje on także dostępną ilość danego warzywa. Oblicza też kwotę należną za dany zakup.
+        </p>
+        <h5>ZakupsController</h5>
+        <p>Kontroler ten odpowiada za obsługę wszelkich zdarzeń związanych z zakupami. Obsługuje wszystkie podstawowe operacje na danych-dodawanie, usuwanie, edytowanie oraz wyświetlanie. W akcji <i>Index()</i> wykorzystuje metodę <i>Include</i>, dzięki czemu może powiązać konkretnego sprzedawcę z zakupem.</p>
+    </div>
+    <br />
 </main>
