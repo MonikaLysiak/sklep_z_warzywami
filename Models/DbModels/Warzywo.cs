@@ -13,10 +13,24 @@ namespace SklepZWarzywami.Models
         public int WarzywoId { get; set; }
         public string Nazwa { get; set; }
         public double CenaZaKg { get; set; }
-        public double IloscNaStanie { get; set; }
+
+
+        private double iloscNaStanie;
+        public string IloscNaStanie
+        {
+            get => iloscNaStanie.ToString();
+            set
+            {
+                bool notdate = double.TryParse(value, out iloscNaStanie);
+                if (!notdate)
+                    iloscNaStanie = 0.00;
+            }
+        }
+
+        //public double IloscNaStanie { get; set; }
 
         public Warzywo() { }
-        public Warzywo(int warzywoId, string nazwa, double cenaZaKg, double iloscNaStanie)
+        public Warzywo(int warzywoId, string nazwa, double cenaZaKg, string iloscNaStanie)
         {
             WarzywoId = warzywoId;
             Nazwa = nazwa;

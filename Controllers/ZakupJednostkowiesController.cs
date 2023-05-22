@@ -55,14 +55,14 @@ namespace SklepZWarzywami.Controllers
             if (ModelState.IsValid)
             {
                 //checking if there is enough of the vegetables, if not changing to all there is of it
-                if (db.Warzywa.Find(zakupJednostkowy.WarzywoId).IloscNaStanie < zakupJednostkowy.Waga)
+                if (double.Parse(db.Warzywa.Find(zakupJednostkowy.WarzywoId).IloscNaStanie) < double.Parse(zakupJednostkowy.Waga))
                     zakupJednostkowy.Waga = db.Warzywa.Find(zakupJednostkowy.WarzywoId).IloscNaStanie;
                 
                 //actualizing amound of the vegetables in the shop
-                db.Warzywa.Find(zakupJednostkowy.WarzywoId).IloscNaStanie -= zakupJednostkowy.Waga;
+                db.Warzywa.Find(zakupJednostkowy.WarzywoId).IloscNaStanie = (double.Parse(db.Warzywa.Find(zakupJednostkowy.WarzywoId).IloscNaStanie) - double.Parse(zakupJednostkowy.Waga)).ToString();
 
                 //counting Cena
-                zakupJednostkowy.Cena = zakupJednostkowy.Waga * db.Warzywa.Find(zakupJednostkowy.WarzywoId).CenaZaKg;
+                zakupJednostkowy.Cena = double.Parse(zakupJednostkowy.Waga) * db.Warzywa.Find(zakupJednostkowy.WarzywoId).CenaZaKg;
 
                 db.ZakupyJednostkowe.Add(zakupJednostkowy);
                 db.SaveChanges();
