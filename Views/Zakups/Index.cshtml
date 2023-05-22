@@ -17,6 +17,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Data)
         </th>
+        <th>
+            Suma
+        </th>
         <th></th>
     </tr>
 
@@ -28,6 +31,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Data)
         </td>
+        <td>
+            @item.ObliczSumę()
+        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.ZakupId }) |
             @Html.ActionLink("Details", "Details", new { id = item.ZakupId }) |
