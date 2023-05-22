@@ -155,6 +155,22 @@
     <Compile Include="Migrations\202305211105589_ParsingStrToDTinZakup.designer.cs">
       <DependentUpon>202305211105589_ParsingStrToDTinZakup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305221319295_GettingZakupDataAsString.cs" />
+    <Compile Include="Migrations\202305221319295_GettingZakupDataAsString.designer.cs">
+      <DependentUpon>202305221319295_GettingZakupDataAsString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305221325250_CheckingToFixMistake.cs" />
+    <Compile Include="Migrations\202305221325250_CheckingToFixMistake.designer.cs">
+      <DependentUpon>202305221325250_CheckingToFixMistake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305221334076_CheckingToFixMistake1.cs" />
+    <Compile Include="Migrations\202305221334076_CheckingToFixMistake1.designer.cs">
+      <DependentUpon>202305221334076_CheckingToFixMistake1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305221346298_FixedSoMakingSureNothingChangedInDB.cs" />
+    <Compile Include="Migrations\202305221346298_FixedSoMakingSureNothingChangedInDB.designer.cs">
+      <DependentUpon>202305221346298_FixedSoMakingSureNothingChangedInDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\DbModels\Sprzedawca.cs" />
@@ -281,6 +297,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305211105589_ParsingStrToDTinZakup.resx">
       <DependentUpon>202305211105589_ParsingStrToDTinZakup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305221319295_GettingZakupDataAsString.resx">
+      <DependentUpon>202305221319295_GettingZakupDataAsString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305221325250_CheckingToFixMistake.resx">
+      <DependentUpon>202305221325250_CheckingToFixMistake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305221334076_CheckingToFixMistake1.resx">
+      <DependentUpon>202305221334076_CheckingToFixMistake1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305221346298_FixedSoMakingSureNothingChangedInDB.resx">
+      <DependentUpon>202305221346298_FixedSoMakingSureNothingChangedInDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
