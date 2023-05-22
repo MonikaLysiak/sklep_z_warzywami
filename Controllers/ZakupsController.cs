@@ -129,5 +129,16 @@ namespace SklepZWarzywami.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        // not sure it works, testing
+
+        // GET: Zakups, Lista Zakupów
+        public ActionResult ListaZakupow(int? id)
+        {
+            var ListaZakupow = db.ZakupyJednostkowe.Select(z => z.ZakupId == id);
+            return View(ListaZakupow.ToList());
+        }
+
     }
 }
