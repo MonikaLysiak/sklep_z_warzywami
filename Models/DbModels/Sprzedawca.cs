@@ -11,8 +11,10 @@ namespace SklepZWarzywami.Models.DbModels
     {
         public int SprzedawcaId { get; set; }
 
-        //[MinLength(5, ErrorMessage = "Zle")]
+        [MinLength(2, ErrorMessage = "Zle")]
         public string Imie { get; set; }
+
+        [MinLength(2, ErrorMessage = "Zle")]
         public string Nazwisko { get; set; }
 
         public Sprzedawca() { }

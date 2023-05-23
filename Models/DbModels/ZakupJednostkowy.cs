@@ -10,12 +10,7 @@ namespace SklepZWarzywami.Models.DbModels
     {
         public int ZakupJednostkowyId { get; set; }
 
-        //[Compare("Warzywo.IloscNaStanie")]
-        //[MinLength(5, ErrorMessage = "Zle")]
         public Warzywo Warzywo { get; set; }
-
-        //[Compare("ZakupId")]
-        //public double Waga { get ; set; }
 
         private double waga;
         public string Waga
@@ -35,13 +30,12 @@ namespace SklepZWarzywami.Models.DbModels
 
         public ZakupJednostkowy() { }
 
-        // apparently we do not use this
-        public ZakupJednostkowy(string waga, Warzywo warzywo, Zakup zakup)
+        public ZakupJednostkowy(double waga, Warzywo warzywo, Zakup zakup)
         {
-            //if (waga > warzywo.IloscNaStanie)
-                //throw new ArgumentException("Brak na stanie");
-            Waga = waga;
-            //warzywo.IloscNaStanie -= waga;
+            if (waga > double.Parse(warzywo.IloscNaStanie))
+                throw new ArgumentException("Brak na stanie");
+            Waga = waga.ToString();
+            warzywo.IloscNaStanie = (double.Parse(warzywo.IloscNaStanie) - waga).ToString();
             Warzywo = warzywo;
             Cena = double.Parse(warzywo.CenaZaKg) * this.waga;
             Zakup = zakup;

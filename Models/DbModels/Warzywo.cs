@@ -12,8 +12,7 @@ namespace SklepZWarzywami.Models
     {
         public int WarzywoId { get; set; }
         public string Nazwa { get; set; }
-        //public double CenaZaKg { get; set; }
-       
+
         private double cenaZaKg;
         public string CenaZaKg
         {
@@ -37,8 +36,6 @@ namespace SklepZWarzywami.Models
                     iloscNaStanie = 0.00;
             }
         }
-
-        //public double IloscNaStanie { get; set; }
 
         public Warzywo() { }
         public Warzywo(int warzywoId, string nazwa, string cenaZaKg, string iloscNaStanie)

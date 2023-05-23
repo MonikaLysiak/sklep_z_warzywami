@@ -28,9 +28,6 @@ namespace SklepZWarzywami.Models.DbModels
             ZakupId = zakupId;
             Sprzedawca = sprzedawca;
             Data = data;
-
-            //if (!DateTime.TryParseExact(data, new[] { "dd.MM.yyyy HH:mm", "dd/MM/yyyy HH:mm", "dd-MM-yyyy HH:mm", "yyyy.MM.dd HH:mm", "yyyy.MM.dd" + "at" + "HH:mm" }, null, DateTimeStyles.None, out this.data))
-            //    Data = DateTime.Now;
         }
         public virtual List<ZakupJednostkowy> ZakupyJednostkowe { get; set; }
         public Sprzedawca Sprzedawca { get; set; }
