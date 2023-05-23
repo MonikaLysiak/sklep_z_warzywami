@@ -102,6 +102,8 @@ namespace SklepZWarzywami.Controllers
         {
             if (ModelState.IsValid)
             {
+                //counting Cena
+                zakupJednostkowy.Cena = double.Parse(zakupJednostkowy.Waga) * db.Warzywa.Find(zakupJednostkowy.WarzywoId).CenaZaKg;
                 db.Entry(zakupJednostkowy).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

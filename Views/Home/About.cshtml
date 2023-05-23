@@ -37,7 +37,7 @@
         <p>Model ten zawiera publiczną klasę <i>ZakupJednostkowy</i>. Właściwości w modelu przechowują dane na temat identyfikatora zakupu jednostkowego (klucza podstawowego w tabeli), wagi, ceny oraz identyfikatorów warzyw i zakupów(klucze obce w tabeli). W klasie utworzone są także dwie właściwości nawigacji: <i>Warzywo</i> oraz <i>Zakup</i>. Pozwalają one na przyporządkowanie do zakupu jednostkowego tylko jednego warzywa i jednego zakupu. Model zawiera także dwa konstruktory-nieparametryczny oraz parametryczny, ustawiający właściwości <i>Waga</i>, <i>Warzywo</i>, <i>Zakup</i> oraz <i>Cena</i> na odpowiednie wartości.</p>
         <h5>Zakup</h5>
         <p>
-            Model ten zawiera publiczną klasę <i>Zakup</i>, zawierającą właściwości reprezentujące: identyfikator zakupu, identyfikator sprzedawcy(klucz obcy), datę oraz sprzedawcę odpowiedzialnego za dany zakup. Wirtualna właściwość <i>ZakupyJednostkowe</i> przyporządkowuje do zakupu wszystkie obiekty <i>ZakupJednostkowy</i> do niego należące. W klasie występują także dwa konstruktory-nieparametryczny oraz parametryczny, ustawiający identyfikator zakupu, sprzedawcę odpowiedzialnego za zakup oraz datę zakupu. W modelu znajduje się także metoda, służąca do sumowania cen zakupów jednostkowych.
+            Model ten zawiera publiczną klasę <i>Zakup</i>, zawierającą właściwości reprezentujące: identyfikator zakupu, identyfikator sprzedawcy(klucz obcy), datę oraz sprzedawcę odpowiedzialnego za dany zakup. Wirtualna właściwość <i>ZakupyJednostkowe</i> przyporządkowuje do zakupu wszystkie obiekty <i>ZakupJednostkowy</i> do niego należące. W klasie występują także dwa konstruktory-nieparametryczny oraz parametryczny, ustawiający identyfikator zakupu, sprzedawcę odpowiedzialnego za zakup oraz datę zakupu. Jeśli wprowadzona data zakupu będzie niepoprawna, zostanie ona ustawiona na bieżącą datę. W modelu znajduje się także metoda, służąca do sumowania cen zakupów jednostkowych.
         </p>
     </div>
     <br />
@@ -70,4 +70,52 @@
         <p>Kontroler ten odpowiada za obsługę wszelkich zdarzeń związanych z zakupami. Obsługuje wszystkie podstawowe operacje na danych-dodawanie, usuwanie, edytowanie oraz wyświetlanie. W akcji <i>Index()</i> wykorzystuje metodę <i>Include</i>, dzięki czemu może powiązać konkretnego sprzedawcę z zakupem.</p>
     </div>
     <br />
+    <div>
+        <h3>Widoki</h3>
+        <h5>Widoki dla Home</h5>
+        <ul>
+            <li><i>Index</i>-odpowiada za stronę startową. Oprócz tekstu zawiera obrazek oraz przyciski przekierowujące użytkownika do innych miejsc w aplikacji.</li>
+            <li><i>About</i>-zawiera dokumentację projektu. </li>
+        </ul>
+        <h5>Widoki Shared</h5>
+        <ul>
+            <li><i>_Layout</i>-odpowiada za menu z linkami nawigacyjnymi, znajdujące się na górze strony oraz za stopkę.</li>
+            <li><i>Error</i>-wykorzystywany w razie wystąpienia błędu.</li>
+        </ul>
+        <h5>Widoki dla Sprzedawcy</h5>
+        <ul>
+            <li><i>Create</i>-zawiera formularz służący do tworzenia nowego sprzedawcy. Formularz ten zawiera trzy grupy, które dotyczą pól <i>Imie</i> i <i>Nazwisko</i> oraz przycisku służącego do zatwierdzenia danych sprzedawcy.</li>
+            <li><i>Delete</i>-zawiera nagłówek z pytaniem o potwierdzenie usunięcia sprzedawcy. Wyświetlane są też dane sprzedawcy, przycisk umożliwiający potwierdzenie usunięcia sprzedawcy oraz link umożliwiający powrót do widoku <i>Index</i></li>
+            <li><i>Details</i>-odpowiada za wyświetlenie szczegółów dotyczących sprzedawcy. Zawiera także linki do widoku umożliwiającego edycję danych oraz do widoku <i>Index</i>.</li>
+            <li><i>Edit</i>-zawiera formularz umożliwiający edycję danych o sprzedawcy oraz przycisk umożliwiający zatwierdzenie tych zmian.</li>
+            <li><i>Index</i>-wyświetla tabelę ze wszystkimi sprzedawcami oraz linki przekierowujące użytkownika do pozostałych widoków</li>
+        </ul>
+        <h5>Widoki dla Warzywa</h5>
+        <ul>
+            <li><i>Create</i>-zawiera formularz służący do tworzenia nowego warzywa. Formularz ten zawiera cztery grupy, które dotyczą pól <i>Nazwa</i>,<i>CenaZaKg</i> i <i>IloscNaStanie</i> oraz przycisku służącego do zatwierdzenia wprowadzonych danych.</li>
+            <li><i>Delete</i>-zawiera nagłówek z pytaniem o potwierdzenie usunięcia. Wyświetlane są też informacje o warzywie, przycisk umożliwiający potwierdzenie jego usunięcia oraz link umożliwiający powrót do widoku <i>Index</i></li>
+            <li><i>Details</i>-odpowiada za wyświetlenie szczegółów dotyczących warzywa. Zawiera także linki do widoku umożliwiającego edycję danych oraz do widoku <i>Index</i>.</li>
+            <li><i>Edit</i>-zawiera formularz umożliwiający edycję danych o warzywie oraz przycisk umożliwiający zatwierdzenie tych zmian.</li>
+            <li><i>Index</i>-wyświetla tabelę ze wszystkimi warzywami oraz linki przekierowujące użytkownika do pozostałych widoków- z  dodawaniem, usuwaniem, edytowaniem czy wyświetlaniem szczegółów danego rekordu</li>
+        </ul>
+        <h5>Widoki dla ZakupuJednostkowego</h5>
+        <ul>
+            <li><i>Create</i>-zawiera formularz służący do tworzenia nowego zakupu jednostkowego. Formularz ten zawiera cztery grupy, które dotyczą pól <i>Waga</i>,<i>ZakupId</i> i <i>WarzywoId</i>, przy czym wagę trzeba wpisać ręcznie, a identyfikatory warzywa i zakupu wybiera się z listy. W czwartej grupie znajduje się przycisk do zatwierdzenia wprowadzonych danych.</li>
+            <li><i>Delete</i>-zawiera nagłówek z pytaniem o potwierdzenie usunięcia. Wyświetlane są też informacje o zakupie jednostkowym, przycisk umożliwiający potwierdzenie jego usunięcia oraz link umożliwiający powrót do widoku <i>Index</i></li>
+            <li><i>Details</i>-odpowiada za wyświetlenie szczegółów dotyczących zakupu jednostkowego. Zawiera także linki do widoku umożliwiającego edycję danych oraz do widoku <i>Index</i>.</li>
+            <li><i>Edit</i>-zawiera formularz umożliwiający edycję informacji o zakupie jednostkowym oraz przycisk umożliwiający zatwierdzenie tych zmian.</li>
+            <li><i>Index</i>-wyświetla tabelę ze wszystkimi zakupami jednostkowymi oraz linki przekierowujące użytkownika do pozostałych widoków- z  dodawaniem, usuwaniem, edytowaniem czy wyświetlaniem szczegółów danego rekordu</li>
+        </ul>
+        <h5>Widoki dla Zakupu</h5>
+        <ul>
+            <li><i>Create</i>-zawiera formularz służący do tworzenia nowego zakupu. Formularz ten zawiera trzy grupy, które dotyczą pól <i>SprzedawcaId</i> i <i>Data</i>, przy czym datę można wpisać ręcznie, a identyfikator sprzedawcy wybiera się z listy. W trzeciej grupie znajduje się przycisk do zatwierdzenia wprowadzonych danych.</li>
+            <li><i>Delete</i>-zawiera nagłówek z pytaniem o potwierdzenie usunięcia. Wyświetlane są też informacje o zakupie, przycisk umożliwiający potwierdzenie jego usunięcia oraz link umożliwiający powrót do widoku <i>Index</i></li>
+            <li><i>Details</i>-odpowiada za wyświetlenie szczegółów dotyczących zakupu. Zawiera także linki do widoku umożliwiającego edycję danych oraz do widoku <i>Index</i>.</li>
+            <li><i>Edit</i>-zawiera formularz, składający się z trzech grup, umożliwiający edycję informacji o zakupie oraz przycisk umożliwiający zatwierdzenie tych zmian.</li>
+            <li><i>Index</i>-wyświetla tabelę ze wszystkimi zakupami oraz linki przekierowujące użytkownika do pozostałych widoków- z  dodawaniem, usuwaniem, edytowaniem, wyświetlaniem szczegółów danego rekordu czy też ze szczegółową listą zakupów jednostkowych, które składają się na dany zakup. Widok ten, oprócz informacji, które zostają wprowadzone w trakcie tworzenia zakupu, wyświetla również sumę cen zakupów jednostkowych składających się na dany zakup, do której obliczenia używa metody <i>ObliczSumę</i> znajdującej się w modelu Zakup.</li>
+        </ul>
+    </div>
+    <div>
+        <h5>Baza danych</h5>
+    </div>
 </main>
