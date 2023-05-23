@@ -4,7 +4,18 @@
 <main aria-labelledby="title">
     <h2 id="title">@ViewBag.Title</h2>
     <br />
-    <div>
+    <h3>Spis treści</h3>
+    <ul>
+        <li><a href="#cel">Cel projektu</a></li>
+        <li><a href="#biznes">Zastosowanie biznesowe</a></li>
+        <li><a href="#model">Modele</a></li>
+        <li><a href="#kontroler">Kontrolery</a></li>
+        <li><a href="#widok">Widoki</a></li>
+        <li><a href="#baza">Baza danych</a></li>
+        <li><a href="#podzial">Podział obowiązków</a></li>
+    </ul>
+    <br />
+    <div id="cel">
         <h3>Cel projektu</h3>
         <p>
             Celem projektu jest stworzenie aplikacji internetowej spiętej z lokalną bazą danych, służącej do zarządzania sklepem z warzywami. Aplikacja ma tworzyć bazę danych zawierającą informacje na temat warzyw sprzedawanych w sklepie(ich cenę oraz dostępność), sprzedawców(imiona i nazwiska) oraz przeprowadzonych transakcji(sprzedawca odpowiedzialny za nie, data oraz kwota). Aplikacja ma pozwalać na wykonywanie podstawowych operacji na danych:
@@ -18,7 +29,7 @@
         </p>
     </div>
     <br />
-    <div>
+    <div id="biznes">
         <h3>Zastosowanie biznesowe</h3>
         <p>
             Aplikacja umożliwi skuteczne zarządzanie asortymentem sklepu - dodawanie czy usuwanie produktów z oferty, w zależności od ich dostępności. Pozwoli też monitorować stan magazynowy, co może pomóc utrzymać odpowiednią dostępność towarów.
@@ -26,7 +37,7 @@
             Aplikacja pozwoli także ulepszyć obsługę klienta. Pracownicy będą mieli dostęp do aktualnych informacji o produktach i ich dostępności czy cenie, dzięki czemu będą w stanie szybko i precyzyjnie odpowiedzieć na pytania zadawane przez klientów. Sprawna obsługa sprawi, że wizyta w sklepie będzie dla klientów przyjemnym doświadczeniem, co z kolei zwiększy szanse na to, że będą oni ponownie decydować się na zakupy w sklepie.
         </p>
     </div>
-    <div>
+    <div id="model">
         <br />
         <h3>Modele</h3>
         <h5>Sprzedawca</h5>
@@ -41,7 +52,7 @@
         </p>
     </div>
     <br />
-    <div>
+    <div id="kontroler">
         <h3>Kontrolery</h3>
         <h5>HomeController</h5>
         <p>Ten kontroler odpowiada za wyświetlanie widoku strony startowej oraz strony z dokumentacją.</p>
@@ -70,7 +81,7 @@
         <p>Kontroler ten odpowiada za obsługę wszelkich zdarzeń związanych z zakupami. Obsługuje wszystkie podstawowe operacje na danych-dodawanie, usuwanie, edytowanie oraz wyświetlanie. W akcji <i>Index()</i> wykorzystuje metodę <i>Include</i>, dzięki czemu może powiązać konkretnego sprzedawcę z zakupem.</p>
     </div>
     <br />
-    <div>
+    <div id="widok">
         <h3>Widoki</h3>
         <h5>Widoki dla Home</h5>
         <ul>
@@ -110,12 +121,37 @@
         <ul>
             <li><i>Create</i>-zawiera formularz służący do tworzenia nowego zakupu. Formularz ten zawiera trzy grupy, które dotyczą pól <i>SprzedawcaId</i> i <i>Data</i>, przy czym datę można wpisać ręcznie, a identyfikator sprzedawcy wybiera się z listy. W trzeciej grupie znajduje się przycisk do zatwierdzenia wprowadzonych danych.</li>
             <li><i>Delete</i>-zawiera nagłówek z pytaniem o potwierdzenie usunięcia. Wyświetlane są też informacje o zakupie, przycisk umożliwiający potwierdzenie jego usunięcia oraz link umożliwiający powrót do widoku <i>Index</i></li>
-            <li><i>Details</i>-odpowiada za wyświetlenie szczegółów dotyczących zakupu. Zawiera także linki do widoku umożliwiającego edycję danych oraz do widoku <i>Index</i>.</li>
+            <li><i>Details</i>-odpowiada za wyświetlenie szczegółów dotyczących zakupu. Pokazuje też tabelę z poszczególnymi produktami, które składają się na dany zakup. Zawiera także linki do widoku umożliwiającego edycję danych oraz do widoku <i>Index</i>.</li>
             <li><i>Edit</i>-zawiera formularz, składający się z trzech grup, umożliwiający edycję informacji o zakupie oraz przycisk umożliwiający zatwierdzenie tych zmian.</li>
             <li><i>Index</i>-wyświetla tabelę ze wszystkimi zakupami oraz linki przekierowujące użytkownika do pozostałych widoków- z  dodawaniem, usuwaniem, edytowaniem, wyświetlaniem szczegółów danego rekordu czy też ze szczegółową listą zakupów jednostkowych, które składają się na dany zakup. Widok ten, oprócz informacji, które zostają wprowadzone w trakcie tworzenia zakupu, wyświetla również sumę cen zakupów jednostkowych składających się na dany zakup, do której obliczenia używa metody <i>ObliczSumę</i> znajdującej się w modelu Zakup.</li>
         </ul>
     </div>
-    <div>
-        <h5>Baza danych</h5>
+    <div id="baza">
+        <h3>Baza danych</h3>
+        <h5>Tabele</h5>
+        Na bazę danych składa się 5 tabel:
+        <ol>
+            <li><i>__MigrationHistory</i>-to domyślna tabela migracji tworzona przez framework w celu zarządzania migracjami w bazie danych.</li>
+            <li><i>Sprzedawcas</i>-to tabela składająca się z 3 kolumn, w której kluczem  jest identyfikator sprzedawcy(<i>SprzedawcaId</i>)</li>
+            <li><i>Warzywoes</i>-tabela składająca się z 4 kolumn, w której kluczem podstawowym jest identyfikator warzywa(<i>WarzywoId</i>)</li>
+            <li><i>ZakupJednostkowies</i>-to tabela składająca się z 5 kolumn. Jej kluczem głównym jest identyfikator zakupu jednostkowego(<i>ZakupJednostkowyId</i>). Zawiera też dwa klucze obce: <i>WarzywoId</i> oraz <i>ZakupId</i></li>
+            <li><i>Zakups</i>-tabela składająca się z 3 kolumn, w której kluczem podstawowym jest identyfikator zakupu(<i>ZakupId</i>). Jej kluczem obcym jest klucz podstawowy tabeli <i>Sprzedawcas</i></li>
+        </ol>
+        <h5>Relacje w bazie</h5>
+        <p>
+            Wszystkie relacje między tabelami występujące w bazie to relacje jeden do wielu. Takimi relacjami połączone są tabele:
+            <ul>
+                <li><i>Sprzedawcas</i> i <i>Zakups</i>- sprzedawca może realizować wiele zakupów, ale do każdego zakupu jest przypisany tylko jeden sprzedawca.</li>
+                <li><i>Warzywoes</i> i <i>ZakupJednostkowies</i>- warzywo może występować w wielu zakupach jednostkowych, ale każdy zakup jednostkowy może składać się tylko z jednego warzywa.</li>
+                <li><i>Zakups</i> i <i>ZakupJednostkowies</i>- zakup może składać się z wielu zakupów jednostkowych, ale każdy zakup jednostkowy może być częścią tylko jednego zakupu.</li>
+            </ul>
+            <h5>Diagram UML</h5>
+            <img src="@Url.Content("~/Content/DiagramUML.jpg")" alt="Diagram UML" style="width: 80vw; height: 40vh;" class="obrazek" />
+    </div>
+    <br />
+    <div id="podzial">
+        <h3>Podział obowiązków:</h3>
+        <p><b>Monika Łysiak</b>: Modele, Kontrolery, Widoki</p>
+        <p><b>Zofia Jaworska</b>: Modele, Strona startowa, Dokumentacja</p>
     </div>
 </main>
