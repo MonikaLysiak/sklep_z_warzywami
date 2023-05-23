@@ -293,6 +293,10 @@
     <Compile Include="Migrations\202305222218578_changingWagaAndIloscNaStanieToString.designer.cs">
       <DependentUpon>202305222218578_changingWagaAndIloscNaStanieToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305231153560_eksperyment1.cs" />
+    <Compile Include="Migrations\202305231153560_eksperyment1.designer.cs">
+      <DependentUpon>202305231153560_eksperyment1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\DbModels\Sprzedawca.cs" />
@@ -372,7 +376,6 @@
     <Content Include="Views\Sprzedawcas\Details.cshtml" />
     <Content Include="Views\Sprzedawcas\Edit.cshtml" />
     <Content Include="Views\Sprzedawcas\Index.cshtml" />
-    <Content Include="Views\Zakups\ListaZakupow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -438,6 +441,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305222218578_changingWagaAndIloscNaStanieToString.resx">
       <DependentUpon>202305222218578_changingWagaAndIloscNaStanieToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305231153560_eksperyment1.resx">
+      <DependentUpon>202305231153560_eksperyment1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

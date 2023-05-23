@@ -34,6 +34,10 @@ namespace SklepZWarzywami.Controllers
             {
                 return HttpNotFound();
             }
+            zakup.Sprzedawca = new Sprzedawca();
+            zakup.Sprzedawca.Imie = db.Sprzedawcy.Find(zakup.SprzedawcaId).Imie;
+            zakup.ZakupyJednostkowe = db.ZakupyJednostkowe.Where(z => z.ZakupId == id).ToList();
+
             return View(zakup);
         }
 
@@ -129,16 +133,5 @@ namespace SklepZWarzywami.Controllers
             }
             base.Dispose(disposing);
         }
-
-
-        // not sure it works, testing
-
-        // GET: Zakups, Lista Zakupów
-        public ActionResult ListaZakupow(int? id)
-        {
-            var ListaZakupow = db.ZakupyJednostkowe.Select(z => z.ZakupId == id);
-            return View(ListaZakupow.ToList());
-        }
-
     }
 }

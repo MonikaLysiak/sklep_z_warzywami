@@ -34,6 +34,8 @@ namespace SklepZWarzywami.Controllers
             {
                 return HttpNotFound();
             }
+            zakupJednostkowy.Warzywo = new Warzywo();
+            zakupJednostkowy.Warzywo.Nazwa = db.Warzywa.Find(zakupJednostkowy.WarzywoId).Nazwa;
             return View(zakupJednostkowy);
         }
 
