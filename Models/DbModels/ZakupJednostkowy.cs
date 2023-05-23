@@ -43,7 +43,7 @@ namespace SklepZWarzywami.Models.DbModels
             Waga = waga;
             //warzywo.IloscNaStanie -= waga;
             Warzywo = warzywo;
-            Cena = warzywo.CenaZaKg * this.waga;
+            Cena = double.Parse(warzywo.CenaZaKg) * this.waga;
             Zakup = zakup;
         }
         public Zakup Zakup { get; set; }

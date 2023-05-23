@@ -64,7 +64,7 @@ namespace SklepZWarzywami.Controllers
                 db.Warzywa.Find(zakupJednostkowy.WarzywoId).IloscNaStanie = (double.Parse(db.Warzywa.Find(zakupJednostkowy.WarzywoId).IloscNaStanie) - double.Parse(zakupJednostkowy.Waga)).ToString();
 
                 //counting Cena
-                zakupJednostkowy.Cena = double.Parse(zakupJednostkowy.Waga) * db.Warzywa.Find(zakupJednostkowy.WarzywoId).CenaZaKg;
+                zakupJednostkowy.Cena = double.Parse(zakupJednostkowy.Waga) * (double.Parse(db.Warzywa.Find(zakupJednostkowy.WarzywoId).CenaZaKg));
 
                 db.ZakupyJednostkowe.Add(zakupJednostkowy);
                 db.SaveChanges();
@@ -103,7 +103,7 @@ namespace SklepZWarzywami.Controllers
             if (ModelState.IsValid)
             {
                 //counting Cena
-                zakupJednostkowy.Cena = double.Parse(zakupJednostkowy.Waga) * db.Warzywa.Find(zakupJednostkowy.WarzywoId).CenaZaKg;
+                zakupJednostkowy.Cena = double.Parse(zakupJednostkowy.Waga) * (double.Parse(db.Warzywa.Find(zakupJednostkowy.WarzywoId).CenaZaKg));
                 db.Entry(zakupJednostkowy).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
