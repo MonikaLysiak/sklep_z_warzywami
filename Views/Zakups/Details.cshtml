@@ -7,9 +7,18 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Zakup</h4>
+    <h4>Szczeguły Zakupu</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            Id Zakupu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZakupId)
+        </dd>
+
         <dt>
             Sprzedawca
         </dt>
@@ -28,38 +37,57 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ZakupId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<h5>Lista Zakupów</h5>
 
 <table class="table">
     <tr>
+
         <th>
             Warzywo
         </th>
+
         <th>
             Waga
         </th>
-        <th></th>
+
+        <th>
+            Cena za kg
+        </th>
+
+        <th>
+            Cena
+        </th>
+
     </tr>
 
     @foreach (var item in Model.ZakupyJednostkowe)
     {
         <tr>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Warzywo.Nazwa)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Zakup.ZakupId)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Waga)
             </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Warzywo.CenaZaKg)
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Cena)
             </td>
+
         </tr>
     }
 
 </table>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ZakupId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

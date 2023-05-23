@@ -38,6 +38,13 @@ namespace SklepZWarzywami.Controllers
             zakup.Sprzedawca.Imie = db.Sprzedawcy.Find(zakup.SprzedawcaId).Imie;
             zakup.ZakupyJednostkowe = db.ZakupyJednostkowe.Where(z => z.ZakupId == id).ToList();
 
+            foreach (ZakupJednostkowy _zakupJednostkowy in zakup.ZakupyJednostkowe)
+            {
+                _zakupJednostkowy.Warzywo = new Warzywo(_zakupJednostkowy.WarzywoId, db.Warzywa.Find(_zakupJednostkowy.WarzywoId).Nazwa, db.Warzywa.Find(_zakupJednostkowy.WarzywoId).CenaZaKg, db.Warzywa.Find(_zakupJednostkowy.WarzywoId).IloscNaStanie);
+                //_zakupJednostkowy.Warzywo.WarzywoId = _zakupJednostkowy.WarzywoId;
+                //_zakupJednostkowy.Warzywo.Nazwa = db.Warzywa.Find(_zakupJednostkowy.WarzywoId).Nazwa;
+            }
+
             return View(zakup);
         }
 
