@@ -22,7 +22,7 @@ namespace SklepZWarzywami.Models
             {
                 bool notdate = double.TryParse(value, out cenaZaKg);
                 if (!notdate)
-                    cenaZaKg = 0.00;
+                    cenaZaKg = 1.00;
             }
         }
 

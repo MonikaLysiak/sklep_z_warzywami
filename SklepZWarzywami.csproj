@@ -297,6 +297,10 @@
     <Compile Include="Migrations\202305231153560_eksperyment1.designer.cs">
       <DependentUpon>202305231153560_eksperyment1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305231637203_zmianyZosi.cs" />
+    <Compile Include="Migrations\202305231637203_zmianyZosi.designer.cs">
+      <DependentUpon>202305231637203_zmianyZosi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\DbModels\Sprzedawca.cs" />
@@ -444,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305231153560_eksperyment1.resx">
       <DependentUpon>202305231153560_eksperyment1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305231637203_zmianyZosi.resx">
+      <DependentUpon>202305231637203_zmianyZosi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
