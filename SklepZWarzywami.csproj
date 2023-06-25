@@ -249,61 +249,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305201848027_first.cs" />
-    <Compile Include="Migrations\202305201848027_first.designer.cs">
-      <DependentUpon>202305201848027_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305201856528_connectingSprzedawca_Zakup.cs" />
-    <Compile Include="Migrations\202305201856528_connectingSprzedawca_Zakup.designer.cs">
-      <DependentUpon>202305201856528_connectingSprzedawca_Zakup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305201902429_addingConstructors.cs" />
-    <Compile Include="Migrations\202305201902429_addingConstructors.designer.cs">
-      <DependentUpon>202305201902429_addingConstructors.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305201904448_deletingVirtualFromUsedObjects.cs" />
-    <Compile Include="Migrations\202305201904448_deletingVirtualFromUsedObjects.designer.cs">
-      <DependentUpon>202305201904448_deletingVirtualFromUsedObjects.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305211105589_ParsingStrToDTinZakup.cs" />
-    <Compile Include="Migrations\202305211105589_ParsingStrToDTinZakup.designer.cs">
-      <DependentUpon>202305211105589_ParsingStrToDTinZakup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305221319295_GettingZakupDataAsString.cs" />
-    <Compile Include="Migrations\202305221319295_GettingZakupDataAsString.designer.cs">
-      <DependentUpon>202305221319295_GettingZakupDataAsString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305221325250_CheckingToFixMistake.cs" />
-    <Compile Include="Migrations\202305221325250_CheckingToFixMistake.designer.cs">
-      <DependentUpon>202305221325250_CheckingToFixMistake.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305221334076_CheckingToFixMistake1.cs" />
-    <Compile Include="Migrations\202305221334076_CheckingToFixMistake1.designer.cs">
-      <DependentUpon>202305221334076_CheckingToFixMistake1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305221346298_FixedSoMakingSureNothingChangedInDB.cs" />
-    <Compile Include="Migrations\202305221346298_FixedSoMakingSureNothingChangedInDB.designer.cs">
-      <DependentUpon>202305221346298_FixedSoMakingSureNothingChangedInDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305222204385_eksperyment.cs" />
-    <Compile Include="Migrations\202305222204385_eksperyment.designer.cs">
-      <DependentUpon>202305222204385_eksperyment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305222218578_changingWagaAndIloscNaStanieToString.cs" />
-    <Compile Include="Migrations\202305222218578_changingWagaAndIloscNaStanieToString.designer.cs">
-      <DependentUpon>202305222218578_changingWagaAndIloscNaStanieToString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305231153560_eksperyment1.cs" />
-    <Compile Include="Migrations\202305231153560_eksperyment1.designer.cs">
-      <DependentUpon>202305231153560_eksperyment1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305231637203_zmianyZosi.cs" />
-    <Compile Include="Migrations\202305231637203_zmianyZosi.designer.cs">
-      <DependentUpon>202305231637203_zmianyZosi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305231924481_makingSeed.cs" />
-    <Compile Include="Migrations\202305231924481_makingSeed.designer.cs">
-      <DependentUpon>202305231924481_makingSeed.cs</DependentUpon>
+    <Compile Include="Migrations\202306251356264_first.cs" />
+    <Compile Include="Migrations\202306251356264_first.designer.cs">
+      <DependentUpon>202306251356264_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -417,47 +365,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202305201848027_first.resx">
-      <DependentUpon>202305201848027_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305201856528_connectingSprzedawca_Zakup.resx">
-      <DependentUpon>202305201856528_connectingSprzedawca_Zakup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305201902429_addingConstructors.resx">
-      <DependentUpon>202305201902429_addingConstructors.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305201904448_deletingVirtualFromUsedObjects.resx">
-      <DependentUpon>202305201904448_deletingVirtualFromUsedObjects.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305211105589_ParsingStrToDTinZakup.resx">
-      <DependentUpon>202305211105589_ParsingStrToDTinZakup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305221319295_GettingZakupDataAsString.resx">
-      <DependentUpon>202305221319295_GettingZakupDataAsString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305221325250_CheckingToFixMistake.resx">
-      <DependentUpon>202305221325250_CheckingToFixMistake.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305221334076_CheckingToFixMistake1.resx">
-      <DependentUpon>202305221334076_CheckingToFixMistake1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305221346298_FixedSoMakingSureNothingChangedInDB.resx">
-      <DependentUpon>202305221346298_FixedSoMakingSureNothingChangedInDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305222204385_eksperyment.resx">
-      <DependentUpon>202305222204385_eksperyment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305222218578_changingWagaAndIloscNaStanieToString.resx">
-      <DependentUpon>202305222218578_changingWagaAndIloscNaStanieToString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305231153560_eksperyment1.resx">
-      <DependentUpon>202305231153560_eksperyment1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305231637203_zmianyZosi.resx">
-      <DependentUpon>202305231637203_zmianyZosi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305231924481_makingSeed.resx">
-      <DependentUpon>202305231924481_makingSeed.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306251356264_first.resx">
+      <DependentUpon>202306251356264_first.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
