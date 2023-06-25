@@ -37,6 +37,7 @@ namespace SklepZWarzywami.Models
             }
         }
 
+
         public Warzywo() { }
         public Warzywo(int warzywoId, string nazwa, string cenaZaKg, string iloscNaStanie)
         {
@@ -45,6 +46,8 @@ namespace SklepZWarzywami.Models
             CenaZaKg = cenaZaKg;
             IloscNaStanie = iloscNaStanie;
         }
+
+
         public virtual ICollection<ZakupJednostkowy> ZakupyJednostkowe { get; set; }
     }
 }

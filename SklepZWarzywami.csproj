@@ -253,6 +253,10 @@
     <Compile Include="Migrations\202306251356264_first.designer.cs">
       <DependentUpon>202306251356264_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306251928443_fixingDatabaseAndSeed.cs" />
+    <Compile Include="Migrations\202306251928443_fixingDatabaseAndSeed.designer.cs">
+      <DependentUpon>202306251928443_fixingDatabaseAndSeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\DbModels\Sprzedawca.cs" />
@@ -367,6 +371,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202306251356264_first.resx">
       <DependentUpon>202306251356264_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306251928443_fixingDatabaseAndSeed.resx">
+      <DependentUpon>202306251928443_fixingDatabaseAndSeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

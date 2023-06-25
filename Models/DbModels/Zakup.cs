@@ -10,6 +10,7 @@ namespace SklepZWarzywami.Models.DbModels
     public class Zakup
     {
         public int ZakupId { get; set; }
+
         public int SprzedawcaId { get; set; }
 
         private DateTime data;
@@ -22,6 +23,7 @@ namespace SklepZWarzywami.Models.DbModels
             }
         }
 
+
         public Zakup() {  }
         public Zakup(int zakupId, Sprzedawca sprzedawca, string data)
         {
@@ -29,8 +31,11 @@ namespace SklepZWarzywami.Models.DbModels
             Sprzedawca = sprzedawca;
             Data = data;
         }
+
+
         public virtual List<ZakupJednostkowy> ZakupyJednostkowe { get; set; }
-        public Sprzedawca Sprzedawca { get; set; }
+        public virtual Sprzedawca Sprzedawca { get; set; }
+
 
         public double ObliczSumę()
         {

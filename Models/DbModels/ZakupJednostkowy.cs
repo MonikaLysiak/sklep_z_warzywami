@@ -10,8 +10,6 @@ namespace SklepZWarzywami.Models.DbModels
     {
         public int ZakupJednostkowyId { get; set; }
 
-        public Warzywo Warzywo { get; set; }
-
         private double waga;
         public string Waga
         {
@@ -25,11 +23,13 @@ namespace SklepZWarzywami.Models.DbModels
         }
 
         public int ZakupId { get; set; }
+
         public int WarzywoId { get; set; }
+
         public double Cena { get; set; }
 
-        public ZakupJednostkowy() { }
 
+        public ZakupJednostkowy() { }
         public ZakupJednostkowy(double waga, Warzywo warzywo, Zakup zakup)
         {
             if (waga > double.Parse(warzywo.IloscNaStanie))
@@ -40,6 +40,10 @@ namespace SklepZWarzywami.Models.DbModels
             Cena = double.Parse(warzywo.CenaZaKg) * this.waga;
             Zakup = zakup;
         }
-        public Zakup Zakup { get; set; }
+
+
+        public virtual Zakup Zakup { get; set; }
+
+        public virtual Warzywo Warzywo { get; set; }
     }
 }

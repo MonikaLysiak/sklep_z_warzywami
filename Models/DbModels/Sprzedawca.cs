@@ -17,6 +17,7 @@ namespace SklepZWarzywami.Models.DbModels
         [MinLength(2, ErrorMessage = "Zle")]
         public string Nazwisko { get; set; }
 
+
         public Sprzedawca() { }
         public Sprzedawca(int sprzedawcaId, string imie, string nazwisko)
         {
@@ -24,6 +25,8 @@ namespace SklepZWarzywami.Models.DbModels
             Imie = imie;
             Nazwisko = nazwisko;
         }
+
+
         public virtual ICollection<Zakup> Zakupy { get; set; }
     }
 }
