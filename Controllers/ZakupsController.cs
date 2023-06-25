@@ -34,15 +34,31 @@ namespace SklepZWarzywami.Controllers
             {
                 return HttpNotFound();
             }
-            zakup.Sprzedawca = new Sprzedawca();
-            zakup.Sprzedawca.Imie = db.Sprzedawcy.Find(zakup.SprzedawcaId).Imie;
-            zakup.ZakupyJednostkowe = db.ZakupyJednostkowe.Where(z => z.ZakupId == id).ToList();
 
-            foreach (ZakupJednostkowy _zakupJednostkowy in zakup.ZakupyJednostkowe)
+            ViewBag.Sprzedawca = db.Sprzedawcy.Find(zakup.SprzedawcaId).Imie;
+
+            List<ZakupJednostkowy> ListaZakupow = db.ZakupyJednostkowe.Where(z => z.ZakupId == id).ToList();
+
+            ViewBag.IloscZakupowJednostkowych = ListaZakupow.Count();
+
+            ViewBag.CenaLaczna = new List<string>();
+
+            ViewBag.NazwyWarzywKolejno = new List<string>();
+
+            ViewBag.CenaZaKgKolejno = new List<string>();
+
+            ViewBag.IloscNaStanieKolejno = new List<string>();
+
+
+            foreach (ZakupJednostkowy _zakupJednostkowy in ListaZakupow)
             {
-                _zakupJednostkowy.Warzywo = new Warzywo(_zakupJednostkowy.WarzywoId, db.Warzywa.Find(_zakupJednostkowy.WarzywoId).Nazwa, db.Warzywa.Find(_zakupJednostkowy.WarzywoId).CenaZaKg, db.Warzywa.Find(_zakupJednostkowy.WarzywoId).IloscNaStanie);
-                //_zakupJednostkowy.Warzywo.WarzywoId = _zakupJednostkowy.WarzywoId;
-                //_zakupJednostkowy.Warzywo.Nazwa = db.Warzywa.Find(_zakupJednostkowy.WarzywoId).Nazwa;
+                ViewBag.NazwyWarzywKolejno.Add(db.Warzywa.Find(_zakupJednostkowy.WarzywoId).Nazwa);
+
+                ViewBag.CenaLaczna.Add(_zakupJednostkowy.Cena.ToString());
+
+                ViewBag.CenaZaKgKolejno.Add(db.Warzywa.Find(_zakupJednostkowy.WarzywoId).CenaZaKg);
+
+                ViewBag.IloscNaStanieKolejno.Add(db.Warzywa.Find(_zakupJednostkowy.WarzywoId).IloscNaStanie);
             }
 
             return View(zakup);
