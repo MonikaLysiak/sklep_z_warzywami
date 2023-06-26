@@ -1,6 +1,7 @@
 ﻿using SklepZWarzywami.Models.DbModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -10,10 +11,13 @@ namespace SklepZWarzywami.Models
 {
     public class Warzywo
     {
+        [DisplayName("ID Warzywa")]
         public int WarzywoId { get; set; }
         public string Nazwa { get; set; }
 
         private double cenaZaKg;
+
+        [DisplayName("Cena za kg")]
         public string CenaZaKg
         {
             get => cenaZaKg.ToString();
@@ -26,6 +30,7 @@ namespace SklepZWarzywami.Models
         }
 
         private double iloscNaStanie;
+        [DisplayName("Ilość na stanie")]
         public string IloscNaStanie
         {
             get => iloscNaStanie.ToString();

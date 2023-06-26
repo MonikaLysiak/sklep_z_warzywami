@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.EnterpriseServices;
 using System.Globalization;
 using System.Linq;
@@ -9,8 +10,10 @@ namespace SklepZWarzywami.Models.DbModels
 {
     public class Zakup
     {
+        [DisplayName("ID Zakupu")]
         public int ZakupId { get; set; }
 
+        [DisplayName("ID Sprzedawcy")]
         public int SprzedawcaId { get; set; }
 
         private DateTime data;

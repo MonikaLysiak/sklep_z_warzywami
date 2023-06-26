@@ -1,0 +1,48 @@
+﻿@model SklepZWarzywami.Models.DbModels.Zakup
+
+<table class="table">
+    <tr>
+
+        <th>
+            Warzywo
+        </th>
+
+        <th>
+            Waga
+        </th>
+
+        <th>
+            Cena za kg
+        </th>
+
+        <th>
+            Cena
+        </th>
+
+    </tr>
+
+    @for (int i = 0; i < ViewBag.IloscZakupowJednostkowych; i++)
+    {
+        <tr>
+
+            <td>
+                @ViewBag.NazwyWarzywKolejno[i]
+            </td>
+
+            <td>
+                @ViewBag.CenaLaczna[i]
+            </td>
+
+            <td>
+                @ViewBag.CenaZaKgKolejno[i]
+            </td>
+
+            <td>
+                @ViewBag.IloscNaStanieKolejno[i]
+            </td>
+
+        </tr>
+    }
+
+</table>
+

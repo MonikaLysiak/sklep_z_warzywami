@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace SklepZWarzywami.Models.DbModels
 {
     public class ZakupJednostkowy
     {
+        [DisplayName("ID zakupu jednostkowego")]
         public int ZakupJednostkowyId { get; set; }
 
         private double waga;
@@ -22,8 +24,10 @@ namespace SklepZWarzywami.Models.DbModels
             }
         }
 
+        [DisplayName("ID zakupu")]
         public int ZakupId { get; set; }
 
+        [DisplayName("ID warzywa")]
         public int WarzywoId { get; set; }
 
         public double Cena { get; set; }
